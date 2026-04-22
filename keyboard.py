@@ -104,3 +104,10 @@ sposoby_vvoda = ReplyKeyboardMarkup(
     ],
     resize_keyboard = True
 )
+level_gl = ReplyKeyboardMarkup(
+    keyboard = [
+        [KeyboardButton(text = "Высокий гликемический индекс"),
+         KeyboardButton(text = "Назад")]
+    ],
+    resize_keyboard = True
+)
