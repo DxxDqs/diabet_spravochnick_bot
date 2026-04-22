@@ -121,6 +121,11 @@ async def sposoby_vvoda (message: Message):
                          "которое может вводить инсулин без помощи шприцов.которое с помощью постоянного ввода маленьких "
                          "доз быстрого инсулина симулирует длинный инсулин, благодаря чему вам не придется его вводить.",
                          reply_markup = kb.sposoby_vvoda)
+@user.message (lambda message: message.text == "Какие бывают уровни глюкозы в крови?")
+async def cmd_level_glukoza (message: Message):
+    await message.answer("Глюкоза в крови может быть повышенной (гипергликемия), ее нужно понизить инсулином, в норме и "
+                         "пониженной (гипогликемия), ее нужно повысить с помощью углеводов с быстрым гликемическим индексом",
+                         reply_markup = kb.level_gl)
 @user.message ()
 async def unknow_message (message: Message):
     await message.answer("Такого запроса нету в боте, используйте встроенную клавиатуру,чтобы не возникло ошибок",
