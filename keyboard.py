@@ -1,113 +1,145 @@
-from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
+from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
+menu = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text="Первый тип", callback_data="tip_1"),
+         InlineKeyboardButton(text="Второй тип", callback_data="tip_2")]
+    ]
+)
 
+tip_1 = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text="Как он появляется?", callback_data="poyavlenye"),
+         InlineKeyboardButton(text="Что такое инсулин?", callback_data="insulin")],
+        [InlineKeyboardButton(text="Что такое глюкоза?", callback_data="glukoza"),
+         InlineKeyboardButton(text="Влияет-ли диабет на физ.нагрузку?", callback_data="fiz_nagruzka")],
+        [InlineKeyboardButton(text="В меню", callback_data="menu")]
+    ]
+)
 
-menu = ReplyKeyboardMarkup(
-    keyboard = [
-        [KeyboardButton(text = "Первый тип"),
-         KeyboardButton (text = "Второй тип")]
-    ],
-    resize_keyboard = True
+insulin = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text="Быстрый инсулин", callback_data="fast_ins"),
+         InlineKeyboardButton(text="Медленный инсулин", callback_data="slow_ins")],
+        [InlineKeyboardButton(text="Какие есть способы ввода инсулина?", callback_data="sposoby_vvoda"),
+         InlineKeyboardButton(text="Назад", callback_data="tip_1")]
+    ]
 )
-tip_1 = ReplyKeyboardMarkup(
-    keyboard = [
-        [KeyboardButton(text = "Как он появляется?"),
-         KeyboardButton(text = "Что такое инсулин?")],
-         [KeyboardButton (text = "Что такое глюкоза?"),
-         KeyboardButton (text = "Влияет-ли диабет на физ.нагрузку?")],
-        [KeyboardButton(text = "В меню")]
-    ],
-    resize_keyboard = True
+
+tip_2 = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text="Какие таблетки прописывают врачи?", callback_data="tabletki"),
+         InlineKeyboardButton(text="Какая диета ставится?", callback_data="dieta_2")],
+        [InlineKeyboardButton(text="В меню", callback_data="menu")]
+    ]
 )
-insulin = ReplyKeyboardMarkup(
-    keyboard = [
-    [KeyboardButton(text = "Быстрый инсулин"),
-     KeyboardButton(text = "Медленный инсулин")],
-    [KeyboardButton(text = "Какие есть способы ввода инсулина?"),
-     KeyboardButton(text = "Назад")]
-     ],
-    resize_keyboard=True
+
+poyavlenye = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text="Что такое инсулин?", callback_data="insulin")],
+        [InlineKeyboardButton(text="Назад", callback_data="tip_1")]
+    ]
 )
-tip_2 = ReplyKeyboardMarkup(
-    keyboard = [
-    [KeyboardButton(text = "Какие таблетки прописывают врачи?"),
-     KeyboardButton(text = "Какая диета ставится?")],
-    [KeyboardButton(text = "В меню")]
-    ],
-    resize_keyboard = True
+
+glukoza = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text="Что такое гликемический индекс и как он связан с глюкозой?", callback_data="gl_index")],
+        [InlineKeyboardButton(text="Насколько строгая диета?", callback_data="dieta")],
+        [InlineKeyboardButton(text="Какие бывают уровни глюкозы?", callback_data="level_gl")],
+        [InlineKeyboardButton(text="Назад", callback_data="tip_1")]
+    ]
 )
-poyavlenye = ReplyKeyboardMarkup(
-    keyboard = [
-        [KeyboardButton(text = "Что такое инсулин?")],
-        [KeyboardButton(text ="Назад")]
-    ],
-    resize_keyboard = True
+
+gl_index = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text="Высокий гликемический индекс", callback_data="hight_gli"),
+         InlineKeyboardButton(text="Средний гликемический индекс", callback_data="avarage_gli"),
+         InlineKeyboardButton(text="Низкий гликемический индекс", callback_data="low_gli")],
+        [InlineKeyboardButton(text="Назад", callback_data="glukoza")]
+    ]
 )
-back = ReplyKeyboardMarkup(
-    keyboard = [
-        [KeyboardButton(text = "Назад")]
-    ],
-    resize_keyboard = True
+
+dieta = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text="Что такое гликемический индекс и как он связан с глюкозой?", callback_data="gl_index")],
+        [InlineKeyboardButton(text="Назад", callback_data="glukoza")]
+    ]
 )
-glukoza = ReplyKeyboardMarkup(
-    keyboard = [
-        [KeyboardButton(text = "Что такое гликемический индекс и как он связан с глюкозой?"),
-        KeyboardButton(text = "Насколько строгая диета при диабете?")],
-        [KeyboardButton(text = "Назад")]
-    ],
-    resize_keyboard = True
+
+fiz_nagruzka = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text="Высокая интенсивность", callback_data="hight_fiz")],
+        [InlineKeyboardButton(text="Средняя/низкая интенсивность", callback_data="low_fiz")],
+        [InlineKeyboardButton(text="Противопоказания", callback_data="protivopokaz")],
+        [InlineKeyboardButton(text="Назад", callback_data="tip_1")]
+    ]
 )
-gl_index = ReplyKeyboardMarkup(
-    keyboard = [
-        [KeyboardButton(text = "Высокий гликемический индекс"),
-         KeyboardButton(text = "Средний гликемический индекс"),
-         KeyboardButton(text = "Низкий гликемический индекс")],
-        [KeyboardButton(text = "Назад")]
-    ],
-    resize_keyboard = True
+
+tabletki = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text="Какая диета ставится?", callback_data="dieta_2")],
+        [InlineKeyboardButton(text="Назад", callback_data="tip_2")]
+    ]
 )
-dieta = ReplyKeyboardMarkup(
-    keyboard = [
-        [KeyboardButton(text = "Что такое гликемический индекс и как он связан с глюкозой?"),
-         KeyboardButton(text = "Назад")]
-    ],
-    resize_keyboard = True
+
+dieta_2 = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text="Какие таблетки прописывают врачи?", callback_data="tabletki")],
+        [InlineKeyboardButton(text="Назад", callback_data="tip_2")]
+    ]
 )
-fiz_nagruzka = ReplyKeyboardMarkup(
-    keyboard = [
-        [KeyboardButton(text = "Влияние на сахар при высокой интенсивности"),
-         KeyboardButton(text = "Влияние на сахар при средней/низкой интенсивности")],
-        [KeyboardButton(text = "Какие есть противопоказания?"),
-         KeyboardButton(text = "Назад")]
-    ],
-    resize_keyboard = True
+
+sposoby_vvoda = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text="Быстрый инсулин", callback_data="fast_ins")],
+        [InlineKeyboardButton(text="Медленный инсулин", callback_data="slow_ins")],
+        [InlineKeyboardButton(text="Назад", callback_data="insulin")]
+    ]
 )
-tabletki = ReplyKeyboardMarkup(
-    keyboard = [
-    [KeyboardButton(text = "Какая диета ставится?")],
-    [KeyboardButton(text = "В меню")]
-    ],
-    resize_keyboard = True
+
+level_gl = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text="Высокий гликемический индекс", callback_data="hight_gli")],
+        [InlineKeyboardButton(text="Назад", callback_data="glukoza")]
+    ]
 )
-dieta_2 = ReplyKeyboardMarkup(
-    keyboard = [
-    [KeyboardButton(text = "Какие таблетки прописывают врачи?")],
-    [KeyboardButton(text = "В меню")]
-    ],
-    resize_keyboard = True
+fast_ins = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text="Назад", callback_data="insulin")]
+    ]
 )
-sposoby_vvoda = ReplyKeyboardMarkup(
-    keyboard = [
-        [KeyboardButton(text = "Быстрый инсулин")],
-        [KeyboardButton(text = "Медленный инсулин")],
-        [KeyboardButton(text = "Назад")]
-    ],
-    resize_keyboard = True
+slow_ins = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text = "Назад", callback_data="insulin")]
+    ]
 )
-level_gl = ReplyKeyboardMarkup(
-    keyboard = [
-        [KeyboardButton(text = "Высокий гликемический индекс"),
-         KeyboardButton(text = "Назад")]
-    ],
-    resize_keyboard = True
+hight_gli = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text = "Назад", callback_data="gl_index")]
+    ]
+)
+avarage_gli = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text = "Назад", callback_data="gl_index")]
+    ]
+)
+low_gli = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text = "Назад", callback_data="gl_index")]
+    ]
+)
+hight_fiz = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text = "Назад", callback_data="fiz_nagruzka")]
+    ]
+)
+low_fiz = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text = "Назад", callback_data="fiz_nagruzka")]
+    ]
+)
+protivopokaz = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [InlineKeyboardButton(text = "Назад", callback_data="fiz_nagruzka")]
+    ]
 )

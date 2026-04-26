@@ -2,8 +2,6 @@ from aiogram import Bot, Dispatcher
 from dotenv import load_dotenv
 import os
 from handlers import user
-from aiogram.types import Message
-from aiogram.filters.command import CommandStart, Command
 
 async def main():
     load_dotenv()
